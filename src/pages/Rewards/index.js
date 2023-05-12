@@ -88,151 +88,181 @@ const Rewards = () => {
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
-        <Typography sx={{ fontSize: 20, ml: 70 }} color="black">
-          Add Reward Amount
-        </Typography>
-        <Grid container justify="flex">
-          <Box
-            component="form"
-            sx={{
-              "& .MuiTextField-root": { m: 1, width: "25ch" },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField
-              id="Amount"
-              type="Number"
-              label="Amount "
-              style={{ width: 200, marginLeft: 380 }}
-              variant="outlined"
-              value={Amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Typography sx={{ fontSize: 20 }} color="black">
+            Add Reward Amount
+          </Typography>
+        </div>
 
-            <TextField
-              id="Rewardval"
-              label="Reward Value "
-              style={{ width: 200 }}
-              variant="outlined"
-              value={Rewardarr}
-              onChange={(e) => setRewardarr(e.target.value)}
-            />
-
-            <Button
-              variant="contained"
-              sx={{ ml: "10px", mt: "15px" }}
-              onClick={addreward}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Grid>
+            <Box
+              component="form"
+              sx={{
+                "& .MuiTextField-root": { m: 1, width: "25ch" },
+              }}
+              noValidate
+              autoComplete="off"
             >
-              Add Amount
-            </Button>
-          </Box>
-        </Grid>
-        <Card sx={{ minWidth: 275 }}>
-          <CardContent>
-            <Typography sx={{ fontSize: 20, ml: 70 }} color="black">
-              Validate Amount
-            </Typography>
-            <Grid container justify="flex">
-              <Box
-                component="form"
-                sx={{
-                  "& .MuiTextField-root": { m: 1, width: "25ch" },
-                }}
-                noValidate
-                autoComplete="off"
-              >
-                <TextField
-                  label="Enter ID "
-                  style={{ width: 200, marginLeft: 440 }}
-                  variant="outlined"
-                  value={Docid}
-                  onChange={(e) => setDocid(e.target.value)}
-                />
+              <TextField
+                id="Amount"
+                type="Number"
+                label="Amount "
+                style={{ width: 200 }}
+                variant="outlined"
+                value={Amount}
+                onChange={(e) => setAmount(e.target.value)}
+              />
 
-                <Button
-                  onClick={() => getrewarddetial(Docid)}
-                  variant="contained"
-                  sx={{ ml: "10px", mt: "15px" }}
-                >
-                  Validate
-                </Button>
-              </Box>
-            </Grid>
-            {showRewardData ? (
-              <div>
-                <label
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: "bold",
-                    marginLeft: "500px",
-                  }}
-                >
-                  User ID:
-                </label>{" "}
-                <label>{Data.Id}</label>
-                <br />
-                <label
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: "bold",
-                    marginLeft: "500px",
-                  }}
-                >
-                  Name:
-                </label>{" "}
-                <label>{Data.UserName}</label>
-                <br />
-                <label
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: "bold",
-                    marginLeft: "500px",
-                  }}
-                >
-                  Amount:
-                </label>{" "}
-                <label>{Data.Amount}</label>
-                <br />
-                <label
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: "bold",
-                    marginLeft: "500px",
-                  }}
-                >
-                  Mobile Number:
-                </label>{" "}
-                <label>{Data.MobNo}</label>
-                <br />
-                <label
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: "bold",
-                    marginLeft: "500px",
-                  }}
-                >
-                  Rewarded:
-                </label>{" "}
-                <label>{Data.RewardClaimed ? "Yes" : "No"}</label>
-                <br />
-                {Data.RewardClaimed ? (
-                  ""
-                ) : (
-                  <Button
-                    variant="contained"
-                    sx={{ ml: "550px", mt: "20px" }}
-                    onClick={markClaimed}
-                  >
-                    Confirm Claim
-                  </Button>
-                )}
-              </div>
-            ) : (
+              <TextField
+                id="Rewardval"
+                label="Reward Value "
+                style={{ width: 200 }}
+                variant="outlined"
+                value={Rewardarr}
+                onChange={(e) => setRewardarr(e.target.value)}
+              />
+
+              <Button
+                variant="contained"
+                sx={{ ml: "10px", mt: "15px" }}
+                onClick={addreward}
+              >
+                Add Amount
+              </Button>
+            </Box>
+          </Grid>
+        </div>
+        <div
+          style={{
+            marginTop: "5rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Typography sx={{ fontSize: 20 }} color="black">
+            Validate Amount
+          </Typography>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Grid>
+            <Box
+              component="form"
+              sx={{
+                "& .MuiTextField-root": { m: 1, width: "25ch" },
+              }}
+              noValidate
+              autoComplete="off"
+            >
+              <TextField
+                label="Enter ID "
+                style={{ width: 200 }}
+                variant="outlined"
+                value={Docid}
+                onChange={(e) => setDocid(e.target.value)}
+              />
+
+              <Button
+                onClick={() => getrewarddetial(Docid)}
+                variant="contained"
+                sx={{ ml: "10px", mt: "15px" }}
+              >
+                Validate
+              </Button>
+            </Box>
+          </Grid>
+        </div>
+        {showRewardData ? (
+          <div>
+            <label
+              style={{
+                fontSize: "15px",
+                fontWeight: "bold",
+                marginLeft: "500px",
+              }}
+            >
+              User ID:
+            </label>{" "}
+            <label>{Data.Id}</label>
+            <br />
+            <label
+              style={{
+                fontSize: "15px",
+                fontWeight: "bold",
+                marginLeft: "500px",
+              }}
+            >
+              Name:
+            </label>{" "}
+            <label>{Data.UserName}</label>
+            <br />
+            <label
+              style={{
+                fontSize: "15px",
+                fontWeight: "bold",
+                marginLeft: "500px",
+              }}
+            >
+              Amount:
+            </label>{" "}
+            <label>{Data.Amount}</label>
+            <br />
+            <label
+              style={{
+                fontSize: "15px",
+                fontWeight: "bold",
+                marginLeft: "500px",
+              }}
+            >
+              Mobile Number:
+            </label>{" "}
+            <label>{Data.MobNo}</label>
+            <br />
+            <label
+              style={{
+                fontSize: "15px",
+                fontWeight: "bold",
+                marginLeft: "500px",
+              }}
+            >
+              Rewarded:
+            </label>{" "}
+            <label>{Data.RewardClaimed ? "Yes" : "No"}</label>
+            <br />
+            {Data.RewardClaimed ? (
               ""
+            ) : (
+              <Button
+                variant="contained"
+                sx={{ ml: "550px", mt: "20px" }}
+                onClick={markClaimed}
+              >
+                Confirm Claim
+              </Button>
             )}
-          </CardContent>
-        </Card>
+          </div>
+        ) : (
+          ""
+        )}
       </CardContent>
     </Card>
   );
